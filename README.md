@@ -16,8 +16,8 @@ Instructions to use:
     <code>npm start</code>
   </li>
   <li>
-    Go to any device on your local network and open the app on the browser.
-    <code><IP address of the server device>:8888</code>
+    Go to any device on your local network and open the app on the browser.<br>
+    <code>&lt;IP address of the server device&gt;:8888</code>
   </li>
 </ol>
 
