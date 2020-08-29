@@ -1,0 +1,72 @@
+
+@layout("layouts.interface")
+
+@section("content")
+
+
+<!-- chat history starts here -->
+<div class="chat-history">
+  <input type = "text" id = "p" value = "{{ sender.name }}" hidden/>
+  <input type = "text" id = "q" value = "{{ receiver.name }}" hidden/>
+  <input type = "text" id = "r" value = "{{ receiver.admn }}" hidden/>
+
+  <ul class = "mbox">
+
+    @each(message in messages)
+      @if(message.pipeEnd)
+        <li class="msg clearfix">
+          <div class="message-data align-right">
+            <span class="message-data-time" >
+              <small>{{ message.datetime.toLocaleDateString() }}</small>&nbsp;
+              {{ message.datetime.toLocaleTimeString() }}
+            </span>&nbsp;
+            <span class="message-data-name" >{{ sender.name }}</span> <i class="fa fa-circle me"></i>
+          </div>
+          <div class="message other-message float-right">
+            {{ message.content.body }}
+          </div>
+        </li>
+      @else
+        <li class = "msg">
+          <div class="message-data">
+            <span class="message-data-name"><i class="fa fa-circle online"></i>{{ receiver.name }}</span>
+            <span class="message-data-time">
+              {{ message.datetime.toLocaleTimeString() }} &nbsp;
+              <small>{{ message.datetime.toLocaleDateString() }}</small>
+            </span>&nbsp;
+          </div>
+          <div class="message my-message">
+            {{ message.content.body }}
+          </div>
+        </li>
+      @endif
+    @endeach
+
+  </ul>
+
+</div>
+<!-- chat history ends here -->
+
+<!-- input form starts here -->
+<div class="chat-message clearfix">
+  <form action = "/send/message" method = "post">
+    <i class="fa fa-file-o"></i>
+    <i class="fa fa-file-image-o"></i>
+    <input type = "text" name="message-to-send" id="message-to-send" placeholder ="Type your message"/>
+    <i class = "fa fa-send"></i>
+    <input type = "file" name = "file-to-send" id = "file-to-send" accept = "application/pdf, text/plain" style = "display: none;"/>
+    <input type = "file" name = "image-to-send" id = "image-to-send" accept = "image/*" style = "display: none;"/>
+    <input type = "submit" style = "display: none;"/>
+  </form>
+</div>
+<!-- input form ends here -->
+
+
+@endsection
+
+
+@section("scripts")
+
+<script src = "/js/message.js"></script>
+
+@endsection

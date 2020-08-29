@@ -1,0 +1,45 @@
+
+@layout("layouts.interface")
+
+@section("styles")
+
+<link rel = "stylesheet" href = "/css/profile.css"/>
+
+@endsection
+
+@section("content")
+
+
+<!-- profile section starts here -->
+<div class = "chat-history">
+  <div class = "social-icons">
+    <a href = "{{ target.links.fb }}"><i class = "fa fa-facebook"></i></a>
+    <a href = "{{ target.links.li }}"><i class = "fa fa-linkedin"></i></a>
+    <a href = "{{ target.links.gh }}"><i class = "fa fa-github"></i></a>
+  </div>
+  <div class = "profile-pic-container"><img src = "{{ target.image || '/images/default.jpg'}}"></div>
+  <div class = "profile-name">{{ target.name }}</div>
+  <hr class = "bar">
+  <div class = "profile-designation">{{ target.admn }}</div>
+  <hr class = "bar">
+  @if(admin)
+    <center><a href = "/profile/update"><button class = "pro-btn">Update</button></a></center>
+    <center><a href = "/auth/logout"><button class = "pro-btn">Logout</button></a></center>
+  @else
+    @if(contact)
+      <center><a href = "/remove/{{ target.admn }}"><button class = "pro-btn">Remove</button></a></center>
+    @else
+      <center><a href = "/add/{{ target.admn }}"><button class = "pro-btn">Add</button></a></center>
+    @endif
+    <center><a href = "/{{ target.admn }}"><button class = "pro-btn">Message</button></a></center>
+  @endif
+</div>
+<!-- profile section ends here -->
+
+
+@endsection
+
+
+@section("scripts")
+
+@endsection

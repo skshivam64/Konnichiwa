@@ -1,0 +1,49 @@
+
+@layout("layouts.interface")
+
+@section("styles")
+
+<link rel = "stylesheet" href = "/css/profile.css"/>
+<link rel="stylesheet" href="/css/croppie.css">
+
+@endsection
+
+@section("content")
+
+
+<!-- profile section starts here -->
+<div class = "chat-history row">
+    <input id = "imgfile" type = "text" value = "{{ sender.image || '/images/default.jpg'}}" hidden/>
+    <div id="upload-demo"></div>
+    <div class = "social-icons">
+      <form>
+        <i class = "fa fa-user"></i><input type = "text" name = "name" value = "{{ sender.name }}">
+        <i class = "fa fa-lock"></i><input type = "text" name = "admn" value = "{{ sender.admn }}">
+        <i class = "fa fa-github Set ghSet" style = "display: none;"></i><input type = "text" name = "gh" value = "{{ sender.links.gh }}" class = "Set ghSet" style = "display: none;">
+        <i class = "fa fa-facebook Set fbSet" style = "display: none;"></i><input type = "text" name = "fb" value = "{{ sender.links.fb }}" class = "Set fbSet" style = "display: none;">
+        <i class = "fa fa-linkedin Set liSet"></i><input type = "text" name = "li" value = "{{ sender.links.li }}" class = "Set liSet">
+        <i class = "fa fa-arrow-left" onclick = "window.location.href = '/profile'"></i>
+        <i class = "fa fa-github gh"></i>
+        <i class = "fa fa-facebook fb"></i>
+        <i class = "fa fa-linkedin li"></i>
+        <i class = "fa fa-arrow-right upload-result"></i>
+      </form>
+    </div>
+
+</div>
+<!-- profile section ends here -->
+
+<!-- hidden input file starts here -->
+<input type="file" id="upload" style = "display: none;"><br>
+<!-- hidden input file ends here -->
+
+
+@endsection
+
+
+@section("scripts")
+
+<script src = "/js/croppie.js"></script>
+<script src = "/js/updateProfile.js"></script>
+
+@endsection

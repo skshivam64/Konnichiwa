@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="icon" href="/images/icon.jpg">
+
+    @!section("styles")
+
+  </head>
+  <body onload="respond()" onresize="respond()">
+    <div class="container clearfix" id = "main">
+      <div class = "row" style = "padding: 0; /*max-height: 600px; overflow: hidden;*/">
+
+        <!-- contacts box starts here -->
+        <div class="people-list col-md-4 col-sm-6 col-xs-12" id="people-list" style = "box-sizing: border-box; padding-right: 0; height: 605px;" hidden>
+
+
+          <!-- search contacts starts here -->
+          <div class="search">
+            <input type="text" placeholder="search" id = "search" />
+            <i class="fa fa-search"></i>
+            <button class = "cancel btn btn-primary" style = "background: #6A6C75; position: absolute; right: 10px; height: 40px;">
+              <i class="fa fa-times-circle"></i>
+            </button>
+          </div>
+          <!-- search contacts ends here -->
+
+          <!-- list of contacts starts here -->
+          <div class="list" style = "overflow-y: scroll;">
+
+            <ul>
+
+              @each(contact in contacts)
+
+                  <li class="clearfix">
+                    <a href = "/profile/{{ contact.to.admn }}">
+                      <img src="{{ contact.to.image || '/images/default.jpg' }}" alt="avatar" />
+                    </a>
+                    <a href = "/{{ contact.to.admn }}" style = "color: white;">
+                      <div class="about">
+                        <div class="name">{{ contact.to.name }}</div>
+                        <div class="status">
+                          <i class="fa fa-circle online"></i>{{ contact.to.admn }}
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+              @endeach
+
+            </ul>
+
+          </div>
+          <!-- list of contacts ends here -->
+
+          <!-- search output starts here -->
+          <div class="list" id = "results" style = "overflow-y: scroll; z-index: 10;" hidden>
+
+          </div>
+          <!-- search output ends here -->
+
+        </div>
+        <!-- contacts box ends here -->
+
+        <!-- chat arena starts here -->
+        <div class="chat col-md-8 col-sm-6 col-xs-12" style = "box-sizing: border-box; padding-right: 0;" hidden>
+
+          <!-- chat header starts here -->
+          <div class="chat-header clearfix">
+            <a href = "/profile/{{ sender.admn }}">
+              <img src="{{ sender.image || '/images/default.jpg' }}" alt="avatar" />
+              <div class="chat-about">
+                <div class="chat-with">{{ sender.name }}</div>
+                <div class="chat-num-messages">{{ sender.admn }}</div>
+              </div>
+            </a>
+            <button class = "resume btn btn-primary" style = "background: #6A6C75; position: absolute; right: 10px; margin-top: 10px;"><i class="fa fa-address-book"></i></button>
+          </div>
+          <!-- chat header ends here -->
+
+
+        @!section("content")
+
+
+
+        </div>
+        <!-- chat arena ends here -->
+
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src = "/js/search.js"></script>
+    <script src = "/js/responsive.js"></script>
+
+    @!section("scripts")
+
+  </body>
+</html>

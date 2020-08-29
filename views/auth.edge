@@ -1,0 +1,86 @@
+@layout("layouts.basic")
+
+@section("styles")
+
+<link rel = "stylesheet" href = "/css/auth.css"/>
+
+<style>
+
+#main{
+  z-index: 100;
+}
+
+</style>
+
+@endsection
+
+@section("content")
+<div class = "container">
+  <div class="card"></div>
+  <div class="card">
+    <h1 class="title">ShoutBox</h1>
+    <h3 class = "title">Login</h3>
+    <form action = "/auth/login" method = "post">
+      <div class="input-container">
+        <input name = "admn" type="text" required="required"/>
+        <label for="admn">Admission Number</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input name = "password" type="password" required="required"/>
+        <label for="password">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button type = "submit"><span>Go</span></button>
+      </div>
+      <div class="footer"><a href="#">Forgot your password?</a></div>
+    </form>
+  </div>
+  <div class="card alt">
+    <div class="toggle"></div>
+    <h1 class="title">ShoutBox
+      <div class="close"></div>
+    </h1>
+    <form action = "/auth/register" method = "post">
+      <div class="input-container">
+        <input name = "admn" type="text" required="required"/>
+        <label for="admn">Admission Number</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input name = "name" type="text" required="required"/>
+        <label for="name">Name</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input name = "password" type="password" required="required"/>
+        <label for="password">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input name = "repass" type="password" required="required"/>
+        <label for="repass">Repeat Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button type = "submit"><span>Register</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+@endsection
+
+@section("scripts")
+<div id = "main-error">
+  <center>
+    <div class = "error-inner">
+    <div id = "error-container">A random error occurred. Please try after some time or report to the webmaster.</div>
+    <button>OK</button>
+    </div>
+  </center>
+</div>
+<script src = "/js/auth.js"></script>
+
+@endsection
