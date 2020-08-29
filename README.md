@@ -2,18 +2,31 @@ This repository comprises of a web application designed for an intranet environm
 
 Instructions to use:
 
-1. Clone the repository.
-git clone https://github.com/skshivam64/Konnichiwa
-
-2. Install dependencies.
-npm install
-
-3. Run the application.
-npm start
-
-4. Go to any device on your local network and open the app on the browser.
-<IP address of the server device>/auth:8888
+<ol>
+  <li>
+    Clone the repository.<br>
+    <code>git clone https://github.com/skshivam64/Konnichiwa</code>
+  </li>
+  <li>
+    Install dependencies.<br>
+    <code>npm install</code>
+  </li>
+  <li>
+    Run the application.<br>
+    <code>npm start</code>
+  </li>
+  <li>
+    Go to any device on your local network and open the app on the browser.
+    <code><IP address of the server device>:8888</code>
+  </li>
+</ol>
 
 Note:
-1. Make sure that your server device is not using port 8888 already.
-2. Make sure that the server device's firewall doesn't block access to localhost.
+<ul>
+  <li>
+    Make sure that your server device is not using port 8888 already.
+  </li>
+  <li>
+    Make sure that the server device's firewall doesn't block access to <i>localhost</i>.
+  </li>
+</ul>
