@@ -4,69 +4,36 @@
 
 <link rel = "stylesheet" href = "/css/auth.css"/>
 
-<style>
-
-#main{
-  z-index: 100;
-}
-
-</style>
 
 @endsection
 
 @section("content")
 <div class = "container">
-  <div class="card"></div>
-  <div class="card">
-    <h1 class="title">ShoutBox</h1>
-    <h3 class = "title">Login</h3>
-    <form action = "/auth/login" method = "post">
-      <div class="input-container">
-        <input name = "admn" type="text" required="required"/>
-        <label for="admn">Admission Number</label>
-        <div class="bar"></div>
+  <div class="form-structor">
+    <div class="signup">
+      <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+      <form action = "/auth/register" method = "post">
+        <div class="form-holder">
+          <input name = "name" type="text" required="required" class="input" placeholder="Name" />
+          <input name = "admn" type="text" required="required" class="input" placeholder="User ID" />
+          <input name = "password" type="password" required="required" class="input" placeholder="Password" />
+          <input name = "repass" type="password" required="required" class="input" placeholder="Re-enter Password" />
+        </div>
+        <button type="submit" class="submit-btn">Sign up</button>
+      </form>
+    </div>
+    <div class="login slide-up">
+      <div class="center">
+        <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+        <form action = "/auth/login" method = "post">
+          <div class="form-holder">
+            <input name = "admn" type="text" required="required" class="input" placeholder="User ID" />
+            <input name = "password" type="password" required="required" class="input" placeholder="Password" />
+          </div>
+          <button type = "submit" class="submit-btn">Log in</button>
+        </form>
       </div>
-      <div class="input-container">
-        <input name = "password" type="password" required="required"/>
-        <label for="password">Password</label>
-        <div class="bar"></div>
-      </div>
-      <div class="button-container">
-        <button type = "submit"><span>Go</span></button>
-      </div>
-      <div class="footer"><a href="#">Forgot your password?</a></div>
-    </form>
-  </div>
-  <div class="card alt">
-    <div class="toggle"></div>
-    <h1 class="title">ShoutBox
-      <div class="close"></div>
-    </h1>
-    <form action = "/auth/register" method = "post">
-      <div class="input-container">
-        <input name = "admn" type="text" required="required"/>
-        <label for="admn">Admission Number</label>
-        <div class="bar"></div>
-      </div>
-      <div class="input-container">
-        <input name = "name" type="text" required="required"/>
-        <label for="name">Name</label>
-        <div class="bar"></div>
-      </div>
-      <div class="input-container">
-        <input name = "password" type="password" required="required"/>
-        <label for="password">Password</label>
-        <div class="bar"></div>
-      </div>
-      <div class="input-container">
-        <input name = "repass" type="password" required="required"/>
-        <label for="repass">Repeat Password</label>
-        <div class="bar"></div>
-      </div>
-      <div class="button-container">
-        <button type = "submit"><span>Register</span></button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 
