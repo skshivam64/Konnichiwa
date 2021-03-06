@@ -9,7 +9,7 @@ Instructions to use:
   </li>
   <li>
     Install dependencies.<br>
-    <code>cd Konnichiwa</code>
+    <code>cd Konnichiwa</code><br>
     <code>npm install</code>
   </li>
   <li>
