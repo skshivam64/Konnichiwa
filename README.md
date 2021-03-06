@@ -9,7 +9,12 @@ Instructions to use:
   </li>
   <li>
     Install dependencies.<br>
+    <code>cd Konnichiwa</code>
     <code>npm install</code>
+  </li>
+  <li>
+    Initialize variables.<br>
+    <code>node init</code> 
   </li>
   <li>
     Run the application.<br>

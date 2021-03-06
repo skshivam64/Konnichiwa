@@ -8,7 +8,13 @@ const mongoose = require("mongoose")
 
 // const Counter = require("./models/Counter")
 
-mongoose.connect("mongodb://localhost/messenger");
+try {
+    mongoose.connect("mongodb://localhost/messenger")
+}
+catch(err) {
+    console.log("Konnichiwa Application Error")
+    console.log(err)
+}
 
 //
 
@@ -109,8 +115,8 @@ mongoose.connect("mongodb://localhost/messenger");
 // });
 
 //
-const sender_id = "5c0bdf52010e1e0e00096656"
-const receiver_id =  "5c0bdf52010e1e0e00096657"
+// const sender_id = "5c0bdf52010e1e0e00096656"
+// const receiver_id =  "5c0bdf52010e1e0e00096657"
 
 
 
